@@ -1,0 +1,118 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>UN//BOUND Festival v4</title>
+<meta name="description" content="UN//BOUND — 3 days of electronic music in an old industrial space. Chernivtsi, 18–20 July.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;800&family=Prompt:wght@800&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add("js-intro")</script>
+<main class="viewport" id="viewport">
+  <section class="stage" id="stage" aria-label="UN//BOUND — electronic music festival">
+
+    <!-- 200:214 · Неоновий дим і світлові спіралі -->
+    <img class="photo photo--bg" id="bg" src="assets/bg.jpg" width="1920" height="1081" alt="">
+
+    <!-- (orbiting light trails removed; the canvas stays empty for the script) -->
+    <canvas class="fx fx--trails" id="fxTrails" aria-hidden="true" hidden></canvas>
+
+    <!-- 221:39 · Заголовок -->
+    <h1 class="headline" aria-label="Let the electric energy take over tonight">
+      <span class="hl hl--archivo" data-line="3" style="left:404px; top:693px" aria-hidden="true">OVER</span>
+      <span class="hl hl--archivo" data-line="4" style="left:407px; top:809px" aria-hidden="true">TONIGHT</span>
+      <span class="hl hl--prompt hl--tight" data-line="1" style="left:49px; top:110px" aria-hidden="true">THE ELECTRIC ENERGY</span>
+      <span class="hl hl--prompt hl--tight" data-line="2" style="left:1455px; top:235px" aria-hidden="true">take</span>
+      <span class="hl hl--prompt" data-line="0" style="left:43px; top:-15px" aria-hidden="true">let</span>
+    </h1>
+
+    <!-- 200:216 · 10 px above Figma: in the browser OVER sits 2.5 px higher, so the label clears its caps by ~6 px -->
+    <p class="t t--light16 t--wide" data-scramble style="left:409px; top:694px">[ GO INSANE FEEL IT ]</p>
+
+    <!-- 218:34 · Текст інформативний -->
+    <div class="info" data-scramble>
+      <div class="info__block" style="left:1408px; top:719px; width:307px">
+        <p>                 Three   days </p>
+        <p>of electronic sound,    raw </p>
+        <p>industrial spaces, immersive       visuals </p>
+      </div>
+      <div class="info__block" style="left:1486px; top:798px; width:241px">
+        <p>and   people   who </p>
+        <p>came to feel  something     different</p>
+      </div>
+    </div>
+
+    <!-- 221:40 · Футер -->
+    <footer class="foot">
+      <p class="t t--light16" data-scramble style="left:49px; top:994px">//AN OLD<br>INDUSTRIAL SPACE</p>
+      <p class="t t--xbold18 t--accent age" data-scramble style="left:926px; top:1012px">18+ ONLY</p>
+      <p class="t t--medium18" data-scramble style="left:869px; top:994px">CHERNIVTSI / UKRAINE</p>
+      <p class="t t--light16 t--right" data-scramble style="right:48px; top:994px">//A NEW KIND OF<br>NIGHT</p>
+    </footer>
+
+    <!-- 200:223 · cut-out (head over the headline) -->
+    <img class="photo photo--person" id="person" src="assets/person.png" width="1920" height="1080" alt="">
+    <!-- soft light lift on the face so the head matches the lit body (fades out toward the neck) -->
+    <img class="photo photo--lift" id="personLift" src="assets/person.png" width="1920" height="1080" alt="" aria-hidden="true">
+
+    <!-- FX over the whole figure, so the head and body get the same light: halo glow + fog / bass dust / sound rings -->
+    <div class="halo" id="halo" aria-hidden="true"></div>
+    <canvas class="fx fx--fog" id="fxFog" aria-hidden="true"></canvas>
+
+    <!-- FX: exhaled smoke in front of the face -->
+    <canvas class="fx fx--smoke" id="fxSmoke" aria-hidden="true"></canvas>
+
+    <!-- dates -->
+    <p class="t t--reg24" data-scramble style="left:48px; top:517px">3 DAYS / 1 FACTORY</p>
+    <p class="t t--reg25" data-scramble style="left:49px; top:540px">18-20</p>
+    <p class="t t--medium16" data-scramble style="left:117px; top:549px">JUL</p>
+
+    <!-- sound toggle (added: plays the generated UN//BOUND loop) -->
+    <button class="sound" id="soundBtn" type="button" aria-pressed="false" style="left:49px; top:604px">
+      <span class="sound__eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="sound__txt">[ SOUND OFF ]</span>
+    </button>
+
+    <!-- 221:38 · Хедер -->
+    <header class="head">
+      <a class="t logo" href="#top" data-scramble style="left:891px; top:45px">UN//BOUND</a>
+      <nav class="menu" aria-label="Main" style="left:1485.5px; top:48px">
+        <a href="#lineup" data-scramble>LINEUP</a>
+        <a href="#experience" data-scramble>EXPERIENCE</a>
+        <a href="#info" data-scramble>INFO</a>
+        <a href="#faq" data-scramble>FAQ</a>
+      </nav>
+      <p class="t t--light16 t--wide" data-scramble style="left:409px; top:48px">[ KEEP MOVING ]</p>
+      <a class="ticket" href="#tickets" style="left:1682px; top:45px">
+        <span class="ticket__br ticket__br--l" aria-hidden="true">[</span>
+        <span class="ticket__txt" data-scramble>GET YOUR TICKET</span>
+        <span class="ticket__br ticket__br--r" aria-hidden="true">]</span>
+      </a>
+    </header>
+
+    <div class="flash" id="flash" aria-hidden="true"></div>
+  </section>
+  <!-- loading screen: the set warms up, then drops -->
+  <div class="loader" id="loader" role="status" aria-label="Loading UN//BOUND">
+    <div class="ld-cut" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i></div>
+    <canvas class="ld-canvas" id="loaderCanvas" aria-hidden="true"></canvas>
+    <div class="ld-ui">
+      <p class="ld-logo">UN//BOUND</p>
+      <div class="ld-center">
+        <p class="ld-num" aria-hidden="true"><span id="loaderNum">000</span></p>
+        <p class="ld-tag" id="loaderTag">[ WARMING UP THE SET ]</p>
+        <button class="ld-sound" id="loaderSound" type="button">[ CLICK FOR SOUND ]</button>
+      </div>
+      <div class="ld-foot">
+        <span>//LOADING THE NIGHT</span>
+        <div class="ld-eq" aria-hidden="true"><i style="--h:0.35"></i><i style="--h:0.6"></i><i style="--h:0.9"></i><i style="--h:0.5"></i><i style="--h:0.75"></i><i style="--h:1"></i><i style="--h:0.65"></i><i style="--h:0.4"></i><i style="--h:0.85"></i><i style="--h:0.55"></i><i style="--h:0.95"></i><i style="--h:0.7"></i><i style="--h:0.45"></i><i style="--h:0.8"></i><i style="--h:1"></i><i style="--h:0.6"></i><i style="--h:0.5"></i><i style="--h:0.9"></i><i style="--h:0.7"></i><i style="--h:0.4"></i><i style="--h:0.85"></i><i style="--h:0.65"></i><i style="--h:1"></i><i style="--h:0.55"></i><i style="--h:0.75"></i><i style="--h:0.45"></i><i style="--h:0.9"></i><i style="--h:0.6"></i><i style="--h:0.8"></i><i style="--h:0.5"></i><i style="--h:0.7"></i><i style="--h:0.35"></i></div>
+        <span>18-20 JUL / CHERNIVTSI</span>
+      </div>
+      <span class="sr-only" id="loaderStatus">0%</span>
+    </div>
+    <div class="ld-flash" aria-hidden="true"></div>
+  </div>
+</main>
+<script src="audio.js"></script>
+<script src="loader.js"></script>
+<script src="main.js"></script>
+
+</body></html>
