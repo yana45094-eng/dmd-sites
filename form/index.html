@@ -1,0 +1,118 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>FØRM Skincare</title>
+<meta name="description" content="FØRM — skincare for sensitive skin. Concise formulas, clear ingredients, purposeful daily care.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Playfair+Display:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add("js-intro")</script>
+<main class="viewport" id="viewport">
+  <!-- the film and the headline, drawn at the screen's own pixels (sharp text) -->
+  <canvas class="film-gl" id="filmGL" aria-hidden="true"></canvas>
+  <section class="stage" id="stage" aria-label="FØRM — skincare for sensitive skin">
+
+    <!-- 427:30 · the picture: our film of the photo (she blinks, the calla lies on the ledge), her at 90 % on
+         the bottom edge. The film is 2560×1440 (the Figma frame in the middle, wall and ledge around it) and carries
+         a matte of her head below the picture: the canvas draws the film and puts the headline behind her hair. -->
+    <div class="scene" id="scene">
+      <div class="film-box">
+        <video class="film" id="filmA" width="2560" height="1952" muted playsinline preload="auto" aria-label="A woman with wet red curls rests her cheek on her hand beside two dew me face cream tubes; a white calla lily lies on the ledge"></video>
+        <video class="film" id="filmB" width="2560" height="1952" muted playsinline loop preload="auto" aria-hidden="true"></video>
+      </div>
+      <canvas class="fx" id="fx" aria-hidden="true"></canvas>
+    </div>
+
+    <!-- 475:48 · headline (drawn in the film, behind her hair) -->
+    <h1 class="sr-only">Made for skin that feels more</h1>
+
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+    <!-- 427:59 · logo -->
+    <div class="grp" data-ax="960" data-ay="50">   <!-- Figma 522:17 · Playfair SemiBold 35, centred on 960.5 as in Figma (web glyphs are ~4px wider) -->
+      <a class="logo js-in" href="#top" style="left:907px; top:37px">FØRM</a>
+    </div>
+    <!-- 427:60 · menu -->
+    <nav aria-label="Main">
+      <!-- Figma 522:18 · Our approach in the logo's old place -->
+      <div class="grp" data-ax="48" data-ay="44">
+        <a class="t t--nav js-in" href="#approach" style="left:48px; top:44px">Our approach </a>
+      </div>
+      <!-- Figma 522:21 · 522:22 -->
+      <div class="grp" data-ax="443" data-ay="44">
+        <a class="t t--nav js-in" href="#skin-guide" style="left:443px; top:44px">Skin guide</a>
+        <a class="t t--nav js-in" href="#ingredients" style="left:443px; top:67px">Ingredients</a>
+      </div>
+    </nav>
+    <!-- 427:52 · contact + menu button -->
+    <div class="grp" data-ax="1583" data-ay="50">
+      <a class="contact js-in" href="#contact" style="left:1583px; top:50px"><span>Contact us</span></a>
+      <button class="burger js-in" type="button" aria-label="Open menu" style="left:1810px; top:58px">
+        <svg width="60" height="17" viewBox="0 0 60 17" fill="none" aria-hidden="true">
+          <line class="burger__l1" y1="1" x2="60" y2="1" stroke="currentColor"/>
+          <line class="burger__l2" y1="16" x2="60" y2="16" stroke="currentColor"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- 474:47 · product card -->
+    <div class="grp" data-ax="50" data-ay="608">
+      <a class="card js-in" href="#dew-me" style="left:50px; top:539px">
+        <span class="card__pic"><img src="assets/tube.png" width="88" height="143" alt="dew me hydrating face cream, black tube"></span>
+        <span class="card__body">
+          <span class="card__text">
+            <span class="card__title">Dew me</span>
+            <span class="card__desc">A gentle everyday formula designed for sensitive skin</span>
+          </span>
+          <span class="card__row">
+            <span class="card__size">30 servings</span>
+            <span class="card__go" aria-hidden="true">
+              <svg width="12" height="19" viewBox="-1 -1.25 11.5 19" fill="none"><path d="M0 0L9.5 8L0 16.5" stroke="currentColor"/></svg>
+            </span>
+          </span>
+        </span>
+      </a>
+    </div>
+
+    <!-- 427:48 -->
+    <div class="grp" data-ax="50" data-ay="1032">
+      <p class="t t--body js-words" style="left:50px; top:932px; width:394px">Sensitive skin deserves thoughtful care. We focus on concise formulas,
+clear ingredients, and purposeful
+daily care so you can understand you 
+routine, not guess</p>
+    </div>
+
+    <!-- 486:63 · Shop now -->
+    <div class="grp" data-ax="1583" data-ay="1030">   <!-- Figma 522:41 -->
+      <a class="shop js-in" href="#shop" style="left:1583px; top:988px">
+        <span class="shop__txt">Shop now</span>
+        <svg class="shop__arrow" width="28" height="19" viewBox="-0.9 -0.9 27.3 18.3" fill="none" aria-hidden="true">
+          <path d="M25 8H0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M17.27 0L25.5 8L17.27 16.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- loading screen: a calla lily drawn in one line, a drop of cream, a ripple that opens the page -->
+  <div class="loader" id="loader" role="status" aria-live="polite" aria-label="Loading">
+    <div class="loader__inner">
+      <svg class="loader__lily" id="loaderLily" viewBox="0 0 220 340" fill="none" aria-hidden="true">
+        <path class="ln ln--stem" pathLength="1" d="M104 186 C 107 222, 100 262, 108 330"/>
+        <path class="ln ln--leaf" pathLength="1" d="M106 268 C 84 258, 66 238, 61 214 C 84 222, 100 242, 106 268"/>
+        <path class="ln ln--leafvein" pathLength="1" d="M104 262 C 90 250, 77 236, 68 222"/>
+        <path class="ln ln--spathe" pathLength="1" d="M104 190 C 92 168, 80 134, 80 104 C 80 78, 96 52, 124 38 C 140 30, 156 24, 168 14 C 164 34, 152 58, 140 78 C 136 110, 124 150, 104 190 Z"/>
+        <path class="ln ln--fold" pathLength="1" d="M140 78 C 132 92, 120 100, 106 104 C 96 106, 86 106, 80 104"/>
+        <path class="ln ln--curl" pathLength="1" d="M124 38 C 128 56, 134 68, 140 78"/>
+        <path class="ln ln--spadix" pathLength="1" d="M104 152 C 102 132, 103 114, 108 98"/>
+        <ellipse class="drop" id="drop" cx="168" cy="14" rx="0" ry="0"/>
+        <ellipse class="ripple" id="ripple1" cx="168" cy="332" rx="0" ry="0"/>
+        <ellipse class="ripple" id="ripple2" cx="168" cy="332" rx="0" ry="0"/>
+      </svg>
+      <p class="loader__brand">FØRM</p>
+      <p class="loader__count"><span id="loaderNum">0</span>%</p>
+    </div>
+  </div>
+</main>
+<script src="main.js"></script>
+
+</body></html>
