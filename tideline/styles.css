@@ -1,0 +1,281 @@
+/* Layout: one 1920×1080 stage placed 1:1 with the Figma frame "12. Серф-школа на океані",
+   scaled as a whole to fit the window so every offset stays as designed. */
+:root {
+  --white: #ffffff;
+  --night: #000000;        /* frame fill */
+  --dusk: #2a211b;         /* sand in shadow, loader ground */
+  --amber: #e3a362;        /* horizon glow */
+  --sun: #fae9bc;
+
+  --f-block: "Archivo Black", "Arial Black", Arial, sans-serif;
+  --f-copy: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-ui: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  --s: 0.5;
+  --swell: cubic-bezier(.22, .9, .25, 1);
+  color-scheme: dark;
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--white);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.viewport { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--night); }
+.stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  transform: translate(var(--ox, 0px), var(--oy, 0px)) scale(var(--s));
+  transform-origin: 0 0;
+  overflow: hidden;
+  background: var(--night);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ---------- picture layers ---------- */
+.layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  max-width: none;
+  pointer-events: none;
+}
+#plate { width: 1920px; height: 1080px; }
+.fx, .ld-beach, .ld-dust { width: 1920px; height: 1080px; }
+.fx { mix-blend-mode: screen; }
+.car { width: 730px; height: 581px; transform-origin: 601px 520px; will-change: transform; }
+.surfer { will-change: transform; }
+#surfer1 { width: 107px; height: 158px; transform-origin: 46px 150px; }
+#surfer2 { width: 92px; height: 158px; transform-origin: 38px 150px; }
+.refl { will-change: transform; }
+#refl1 { width: 104px; height: 92px; transform-origin: 43px 0; }
+#refl2 { width: 74px; height: 92px; transform-origin: 30px 0; }
+
+/* ---------- type ---------- */
+.t {
+  position: absolute;
+  margin: 0;
+  color: var(--white);
+  font-style: normal;
+  white-space: pre;
+}
+.t--copy {
+  font-family: var(--f-copy);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+.t--copy3 { text-align: right; }
+.t--fact {
+  position: relative;
+  font-family: var(--f-ui);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+.facts { position: absolute; display: flex; flex-direction: column; }
+
+.t--seven {
+  font-family: var(--f-block);
+  font-size: 160px;
+  line-height: 168.3px;          /* places the glyph where Figma's auto height (174px) does */
+  letter-spacing: -12.8px;       /* -8% */
+  overflow: hidden;
+  height: 174px;
+}
+.seven__num { display: inline-block; }
+.t--days {
+  font-family: var(--f-block);
+  font-size: 24px;
+  line-height: 25.2px;
+  letter-spacing: -1.92px;
+}
+
+.headline { position: absolute; inset: 0; margin: 0; font-size: 0; pointer-events: none; }
+.hl {
+  position: absolute;
+  display: block;
+  white-space: nowrap;
+  font-family: var(--f-block);
+  font-weight: 400;
+  font-size: 195px;
+  line-height: 199px;            /* puts the glyphs where Figma's auto height (212px) does */
+  letter-spacing: -15.6px;       /* -8% */
+  color: var(--white);
+}
+.hl--start { letter-spacing: -11.7px; } /* -6% */
+.hl .ch { position: absolute; top: 0; display: block; white-space: pre; will-change: transform, clip-path; }
+
+/* header */
+.logo {
+  position: absolute;
+  display: block;
+  width: 106px;
+  height: 46px;
+  color: var(--white);
+  text-decoration: none;
+  font-family: var(--f-ui);
+}
+.logo__word { position: absolute; left: 0; top: 19px; font-weight: 600; font-size: 22px; line-height: 27px; white-space: nowrap; }
+.logo__dot { position: absolute; left: 98px; top: 0; font-weight: 500; font-size: 28px; line-height: 34px; }
+.logo__dot { display: inline-block; transform-origin: 50% 80%; }
+.logo:hover .logo__dot { animation: bob 1.2s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-5px); } }
+
+.menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;            /* each link only as wide as its word, so the underline fits it */
+}
+.menu a {
+  position: relative;
+  margin-bottom: -2px;
+  font-family: var(--f-ui);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.18px;
+  color: var(--white);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 2px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: 100% 50%;
+  transition: transform .5s var(--swell);
+}
+.menu a:hover::after, .menu a:focus-visible::after { transform: scaleX(1); transform-origin: 0 50%; }
+
+.cta { position: absolute; width: 244px; height: 48px; color: var(--white); text-decoration: none; }
+.cta__brackets { position: absolute; left: 0; top: 0; overflow: visible; }
+.cta__b { transition: transform .5s var(--swell); }
+.cta__txt {
+  position: absolute;
+  left: 20px;
+  top: 13px;
+  font-family: var(--f-ui);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+.cta__box { position: absolute; left: 203px; top: 0; overflow: visible; }
+.cta__arrow { position: absolute; left: 215.5px; top: 16.5px; overflow: visible; }   /* the arrow stays put, like the text */
+.cta:hover .cta__b--top, .cta:focus-visible .cta__b--top { transform: translateY(-4px); }
+.cta:hover .cta__b--bottom, .cta:focus-visible .cta__b--bottom { transform: translateY(4px); }
+
+a:focus-visible { outline: 1px dashed var(--white); outline-offset: 5px; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* intro states, only while the script runs it */
+.js-intro .js-in, .js-intro .js-wash, .js-intro .hl, .js-intro .surfer, .js-intro .refl, .js-intro .t--seven { visibility: hidden; }
+.js-intro .is-shown { visibility: visible; }
+.js-in { transition: opacity 1s var(--swell), transform 1s var(--swell); }
+.js-in.is-pre { opacity: 0; transform: translateX(-18px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js-intro .js-in, .js-intro .js-wash, .js-intro .hl, .js-intro .t--seven { visibility: visible; }
+}
+
+/* ---------- film ---------- */
+.film {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  object-fit: cover;
+  background: var(--night);
+}
+.film-ui {
+  position: absolute;
+  z-index: 30;
+  display: flex;
+  gap: 24px;
+  width: 200px;
+  justify-content: center;
+}
+.film-btn, .film-play {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--f-ui);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgba(255, 255, 255, .8);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .3s ease;
+}
+.film-btn:hover, .film-btn:focus-visible, .film-btn[aria-pressed="true"] { color: var(--white); }
+.film-btn:focus-visible, .film-play:focus-visible { outline: 1px dashed var(--white); outline-offset: 5px; }
+.film-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--f-block);
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--white);
+}
+
+/* ---------- packed film and the layers in front of the headline ---------- */
+.film-box { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; }
+.film.film--packed { height: 1416px; object-fit: fill; }
+.fg-car { width: 785px; height: 629px; }
+.fg-guys { width: 380px; height: 330px; }
+.js-intro .fg-car, .js-intro .fg-guys { visibility: visible; }
+
+/* ---------- adaptive: picture covers the screen, top and bottom rows stick to its edges ---------- */
+.stage { overflow: visible; }
+.scene { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform: scale(var(--k, 1)); transform-origin: 50% 50%; pointer-events: none; }
+.pin { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; pointer-events: none; }
+.pin > * { pointer-events: auto; }
+.pin--tl { transform: translate(calc(var(--gx, 0) * -1px), calc(var(--gyt, 0) * -1px)); }
+.pin--tr { transform: translate(calc(var(--gx, 0) * 1px), calc(var(--gyt, 0) * -1px)); }
+.pin--bl { transform: translate(calc(var(--gx, 0) * -1px), calc(var(--gyb, 0) * 1px)); }
+.pin--br { transform: translate(calc(var(--gx, 0) * 1px), calc(var(--gyb, 0) * 1px)); }
+.pin--b { transform: translateY(calc(var(--gyb, 0) * 1px)); }
+
+/* headline reveal: each line hides what is below its baseline while the letters rise into place */
+.hl.is-masked { clip-path: inset(-40% -12% 0 -12%); }
+
+/* loader corners follow the same crop as the page */
+#stage .fl-logo { transform: translate(calc(var(--gx, 0) * -1px), calc(var(--gyt, 0) * -1px)); }
+#stage .fl-count { transform: translate(calc(var(--gx, 0) * -1px), calc(var(--gyb, 0) * 1px)); }
+#stage .fl-status { transform: translate(calc(var(--gx, 0) * 1px), calc(var(--gyb, 0) * 1px)); }
+#stage .fl-grain { inset: -160px; }
+/* the copy block keeps its 48px margin from the left edge when the sides are cropped */
+
+
+/* the CTA a little more accented: heavier outline and text (arrow unchanged) */
+.cta__brackets path, .cta__box path { stroke-width: 1.5; }
+.cta__txt { font-weight: 600; }
+
+/* TEST: the arrow as heavy as the outline (a diagonal line reads thinner at the same width) */
+.cta__arrow path { stroke-width: 2; }
+
+/* Figma test frame 449:2: headline 200px (auto line height in Figma: 218px; this line height puts the glyphs where Figma does) */
+.hl { font-size: 200px; line-height: 204.1px; letter-spacing: -16px; }   /* -8% */
+.hl--start { letter-spacing: -12px; }                                      /* -6% */
