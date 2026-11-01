@@ -1,0 +1,141 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>TIDELINE First Motion</title>
+<meta name="description" content="TIDELINE — a week of beginner-friendly surf lessons, ocean air and good company. Catch your first wave.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add("js-intro")</script>
+<main class="viewport" id="viewport">
+  <section class="stage" id="stage" aria-label="TIDELINE — first motion, a beginner surf camp">
+
+    <!-- the picture covers the whole screen; the text keeps the design layout, top and bottom rows stick to the screen edges -->
+    <div class="scene">
+    <!-- 381:130 · the photo, animated in Kling AI: the film opens under water and rises onto the photo -->
+    <img class="layer photo" id="photo" src="assets/photo.jpg" width="1920" height="1080" alt="A surfer with a blue board stands on a dark rock while a wave breaks over it under a grey sky">
+    <!-- two players take turns so the film runs without a break: each lap dissolves into the next -->
+    <div class="films">
+      <video class="film" id="filmA" width="1920" height="1080" muted playsinline preload="auto" aria-hidden="true"></video>
+      <video class="film" id="filmB" width="1920" height="1080" muted playsinline preload="auto" aria-hidden="true"></video>
+    </div>
+    <!-- 381:131 · grunge texture, lighten 18% -->
+    <img class="layer texture" src="assets/texture.jpg" width="1920" height="1080" alt="" aria-hidden="true">
+    </div>
+
+    <!-- 381:180 · Заголовок + текст: one block, placed in percent of the screen by its centre -->
+    <div class="grp grp--head" data-ax="49" data-ay="563" data-fixed="1">
+    <h1 class="headline" aria-label="First motion">
+      <!-- a faint plain-white copy under FIRST: the overlay never goes dark over the rock, it stays a see-through white -->
+      <span class="hd hd--first-base js-hide" id="firstBase" style="left:29px; top:290px" aria-hidden="true">FIRST</span>
+      <span class="hd hd--first js-hide" id="first" style="left:29px; top:290px" aria-hidden="true">FIRST</span>
+      <span class="hd hd--motion js-hide" id="motion" style="left:192px; top:498px" aria-hidden="true">MOTI<span class="o-ghost">O</span>N</span>
+    </h1>
+    <!-- 381:186 · the lime brush Ø, painted stroke by stroke -->
+    <div class="lime-o js-hide" id="limeO" style="left:797px; top:418px" aria-hidden="true">
+      <svg width="419" height="419" viewBox="0 0 419 419">
+        <defs>
+          <mask id="oMask" maskUnits="userSpaceOnUse" x="0" y="0" width="419" height="419">
+            <path id="oRing" fill="none" stroke="#fff" stroke-width="80" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" d=""/>
+            <path id="oSlash" fill="none" stroke="#fff" stroke-width="46" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" d="M70 400 L392 14"/>
+          </mask>
+        </defs>
+        <image href="assets/lime-o.png" width="419" height="419" mask="url(#oMask)"/>
+      </svg>
+      <img class="lime-o__full" id="limeFull" src="assets/lime-o.png" width="419" height="419" alt="">
+      <span class="lime-o__drops" id="limeDrops"></span>
+    </div>
+    <p class="t deco js-hide" data-type="wave study / 001" style="left:1180px; top:507px">wave study / 001</p>
+    <p class="t deco js-hide" data-type="level 01: beginner" style="left:49px; top:297px">level 01: beginner</p>
+    </div>
+
+    <!-- 381:187 · Декоративний текст -->
+
+    <!-- 381:132 · Хедер -->
+    <header class="head">
+      <div class="pin pin--tl pin--front" data-ax="49" data-ay="25">
+      <a class="logo" href="#top" style="left:49px; top:25px"><span class="logo__word">TIDELINE</span><span class="logo__dot">.</span></a>
+      </div>
+      <div class="pin pin--tr" data-ax="1354" data-ay="25">
+      <nav class="menu" aria-label="Main" style="left:1354px; top:46px">
+        <a class="js-hide" href="#lessons">SURF LESSONS</a>
+        <a class="js-hide" href="#faq">FAQ</a>
+        <a class="js-hide" href="#stay">WHERE WE STAY</a>
+        <a class="js-hide" href="#contacts">CONTACTS</a>
+      </nav>
+      </div>
+      <!-- the button keeps the top-right corner -->
+      <div class="pin pin--tr" data-ax="1870" data-ay="25">
+      <a class="cta js-hide" href="#book" style="left:1626px; top:51px">
+        <svg class="cta__brackets" width="204" height="48" viewBox="0 0 204 48" fill="none" aria-hidden="true">
+          <path class="cta__b cta__b--bottom" d="M203.5 36V47.5H0.5V36" stroke="currentColor"/>
+          <path class="cta__b cta__b--top" d="M0.5 12V0.5H203.5V12" stroke="currentColor"/>
+        </svg>
+        <span class="cta__txt">BOOK YOUR WEEK</span>
+        <svg class="cta__box" width="42" height="48" viewBox="0 0 42 48" fill="none" aria-hidden="true">
+          <path class="cta__b cta__b--top" d="M0 0.5H41V12" stroke="currentColor"/>
+          <path class="cta__b cta__b--bottom" d="M0 47.5H41V36" stroke="currentColor"/>
+        </svg>
+        <svg class="cta__arrow" width="16" height="15" viewBox="0 0 16 15" fill="none" aria-hidden="true">
+          <path d="M0.499125 14.2491L15.0129 1.30737M14.4991 11.749L15.0129 1.30737L4.49915 0.749023" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </a>
+      </div>
+    </header>
+
+    <!-- 381:148 · Футер -->
+    <footer class="foot">
+      <div class="pin pin--b" data-ax="430" data-ay="1080" data-follow="head">
+      <span class="hd hd--o js-hide" id="footO" style="left:430px; top:939px" aria-hidden="true">O</span>
+      </div>
+      <div class="pin pin--bl" data-ax="49" data-ay="1034">
+      <div class="bullets" style="left:48px; top:951px" aria-hidden="true">
+        <span class="bullet js-hide">.</span><span class="bullet js-hide">.</span><span class="bullet js-hide">.</span>
+      </div>
+      <ul class="facts" style="left:64px; top:968px">
+        <li class="js-hide">7 DAYS</li>
+        <li class="js-hide">BEGINNER SURF CAMP</li>
+        <li class="js-hide">20-35 AGES</li>
+      </ul>
+      </div>
+      <p class="sr-only">A week of beginner-friendly surf lessons, ocean air, and good company. We'll help you catch your first wave, find your balance and feel more confident in the water.</p>
+      <div class="pin pin--br" data-ax="1354" data-ay="1034">
+      <div class="para" aria-hidden="true">
+        <span class="w js-hide" style="left:1354px; top:946px">A week </span>
+        <span class="w js-hide" style="left:1455px; top:946px">of   beginner-friendly </span>
+        <span class="w js-hide" style="left:1722px; top:946px">surf </span>
+        <span class="w js-hide" style="left:1802px; top:946px">lessons, </span>
+        <span class="w js-hide" style="left:1353px; top:968px">ocean air,</span>
+        <span class="w js-hide" style="left:1466px; top:968px">and good </span>
+        <span class="w js-hide" style="left:1597px; top:968px">company.</span>
+        <span class="w js-hide" style="left:1753px; top:968px">We'll </span>
+        <span class="w js-hide" style="left:1834px; top:968px">help </span>
+        <span class="w js-hide" style="left:1354px; top:990px">you catch </span>
+        <span class="w js-hide" style="left:1516px; top:990px">your first </span>
+        <span class="w js-hide" style="left:1629px; top:990px">wave,</span>
+        <span class="w js-hide" style="left:1714px; top:990px">find   your balance</span>
+        <span class="w js-hide" style="left:1353px; top:1012px">and</span>
+        <span class="w js-hide" style="left:1438px; top:1012px">feel     more</span>
+        <span class="w js-hide" style="left:1623px; top:1012px">confident</span>
+        <span class="w js-hide" style="left:1769px; top:1012px">in the water</span>
+      </div>
+      </div>
+    </footer>
+
+    <!-- loading screen: on black, the T of TIDELINE and its lime dot; as the film loads the T moves left
+         and the name is written out between them; the percent below. About 3 seconds. -->
+    <div class="ld" id="ld" aria-hidden="true">
+      <div class="ld-bg" id="ldBg"></div>
+      <div class="grp ld-ui" data-ax="960" data-ay="540" data-fixed="1">
+        <div class="ld-tm"><span class="ld-t" id="ldT">TIDELINE</span></div>
+        <span class="ld-dot" id="ldDot"></span>
+      </div>
+      <div class="grp ld-ui" data-ax="960" data-ay="1034">
+        <p class="ld-pct" id="ldPct" style="left:860px; top:1012px">0%</p>
+      </div>
+    </div>
+    <span class="sr-only" role="status" id="ldA11y">Loading</span>
+  </section>
+</main>
+<script src="main.js"></script>
+
+</body></html>
