@@ -293,8 +293,8 @@
   }
   function pickSource() {
     const v = document.createElement("video");
-    if (v.canPlayType('video/mp4; codecs="avc1.640028"')) return [{ url: "assets/film.mp4", size: 7246289, type: "video/mp4" }, { url: "assets/loop.mp4", size: 5817178, type: "video/mp4" }];
-    return [{ url: "assets/film.webm", size: 731280, type: "video/webm" }, { url: "assets/loop.webm", size: 568946, type: "video/webm" }];
+    if (v.canPlayType('video/mp4; codecs="avc1.640028"')) return [{ url: "assets/film.mp4", size: 7253749, type: "video/mp4" }, { url: "assets/loop.mp4", size: 5804346, type: "video/mp4" }];
+    return [{ url: "assets/film.webm", size: 733743, type: "video/webm" }, { url: "assets/loop.webm", size: 572069, type: "video/webm" }];
   }
   async function fetchFile(src, onProgress) {
     try {
